@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        background: black;
+        color: white;
+      }
+      div.container {
+        max-width: 500px;
+        margin: 100px auto;
+        border: 20px solid white;
+        padding: 10px;
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      h4 {
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Anime Waifu of the day</h4>
+      {% if url %}
+      <img src="{{url}}" alt="Anime waifu" referrerpolicy="no-referrer" />
+      <p><small>Source: <a href="https://waifu.pics/" target="_blank" rel="noreferrer">waifu.pics</a></small></p>
+      {% else %}
+      <p>Could not load an image. Refresh to try again.</p>
+      {% if error %}
+      <p><small>Error: {{ error }}</small></p>
+      {% endif %}
+      {% endif %}
+    </div>
+  </body>
+</html>
