@@ -1,16 +1,17 @@
+# specifying the base image, since this app is in python the base iamge will be python 
 FROM python:3.8
 
-# set a directory for the app
+# set an active to where we will copy the files of our app
 WORKDIR /usr/src/app
 
-# copy all the files to the container
 COPY . .
 
-# install dependencies
+# install dependacies, since it is in the requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# tell the port number the container should expose
+# to expose the port number, since flask use 5000 by default
 EXPOSE 5000
 
-# run the command
+# command to run the app when the docker will start
 CMD ["python", "./app.py"]
+
